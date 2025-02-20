@@ -44,43 +44,44 @@
     <section class="Bots" id="Bots">
         <h2 class="title">روبوتاتنا</h2>
         <div class="content"> 
-            <!-- Content for bots goes here, no need for translation -->
-            <div class="BotCard">
-                <div class="BotImage">
-                    <img src="https://telegra.ph/file/9b8b414b0760896f3d159.png">
+            <div class="bot-cards-container">
+                <div class="BotCard">
+                    <div class="BotImage">
+                        <img src="https://telegra.ph/file/9b8b414b0760896f3d159.png">
+                    </div>
+                    <div class="BotInfo" style="text-align: right;">
+                        <p class="Bot-category">بوت الذكاء الاصطناعي 🧠: يحاكي التفاعلات البشرية.</p><br>
+                        <strong class="BotTitle">
+                            <span>بوت الذكاء الاصطناعي</span>
+                            <a href="https://api.whatsapp.com/send/?phone=212774678871&text=مرحباً، هل يمكنك مساعدتي؟" class="PlayNow">جرب الآن!</a>
+                        </strong>
+                    </div>
                 </div>
-                <div class="BotInfo" style="text-align: right;">
-                    <p class="Bot-category">بوت الذكاء الاصطناعي 🧠: يحاكي التفاعلات البشرية.</p><br>
-                    <strong class="BotTitle">
-                        <span>بوت الذكاء الاصطناعي</span>
-                        <a href="https://api.whatsapp.com/send/?phone=212774678871&text=مرحباً، هل يمكنك مساعدتي؟" class="PlayNow">جرب الآن!</a>
-                    </strong>
+                <div class="BotCard">
+                    <div class="BotImage">
+                        <img src="https://telegra.ph/file/8f9a487f4593f713809c1.png">
+                    </div>
+                    <div class="BotInfo" style="text-align: right;">
+                        <p class="Bot-category">بوت سيمسيمي 🤖: يشارك في محادثات ممتعة!</p>
+                        <strong class="BotTitle">
+                            <span>بوت سيمسيمي</span>
+                            <a href="https://api.whatsapp.com/send/?phone=212643565839&text=سلام%20كيف%20حالك؟" class="PlayNow">جرب الآن!</a>
+                        </strong>
+                    </div>
                 </div>
+                <div class="BotCard">
+                    <div class="BotImage">
+                        <img src="https://telegra.ph/file/43d4b9aa93d18e9bd0dd1.jpg">
+                    </div>
+                    <div class="BotInfo" style="text-align: right;">
+                        <p class="Bot-category">بوت تنزيل الفيديوهات تلقائيًا 📹: يقوم بجلب مقاطع الفيديو من يوتيوب، فيسبوك، إنستجرام، وتيك توك تلقائيًا! 🌟"</p><br>
+                        <strong class="BotTitle">
+                            <span>بوت التنزيل التلقائي</span>
+                            <a href="https://api.whatsapp.com/send/?phone=6289508155598&text=القائمة" class="PlayNow">جرب الآن!</a>
+                        </strong>
+                    </div>
+                </div>            
             </div>
-            <div class="BotCard">
-                <div class="BotImage">
-                    <img src="https://telegra.ph/file/8f9a487f4593f713809c1.png">
-                </div>
-                <div class="BotInfo" style="text-align: right;">
-                    <p class="Bot-category">بوت سيمسيمي 🤖: يشارك في محادثات ممتعة!</p>
-                    <strong class="BotTitle">
-                        <span>بوت سيمسيمي</span>
-                        <a href="https://api.whatsapp.com/send/?phone=212643565839&text=سلام%20كيف%20حالك؟" class="PlayNow">جرب الآن!</a>
-                    </strong>
-                </div>
-            </div>
-            <div class="BotCard">
-                <div class="BotImage">
-                    <img src="https://telegra.ph/file/43d4b9aa93d18e9bd0dd1.jpg">
-                </div>
-                <div class="BotInfo" style="text-align: right;">
-                    <p class="Bot-category">بوت تنزيل الفيديوهات تلقائيًا 📹: يقوم بجلب مقاطع الفيديو من يوتيوب، فيسبوك، إنستجرام، وتيك توك تلقائيًا! 🌟"</p><br>
-                    <strong class="BotTitle">
-                        <span>بوت التنزيل التلقائي</span>
-                        <a href="https://api.whatsapp.com/send/?phone=6289508155598&text=القائمة" class="PlayNow">جرب الآن!</a>
-                    </strong>
-                </div>
-            </div>            
         </div>
     </section>
 
@@ -298,7 +299,8 @@
 
 
                 .BotCard:hover{
-                    transform: scale(1.1);
+                    /*transform: scale(1.1);*/
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
                 }
                 .BotCard:hover .BotImage{
                     opacity: 0.9;
@@ -562,7 +564,6 @@
                         padding-right: 10px;
                     }
 
-                    /* تعديلات على قائمة البوتات */
                     .BotCard {
                         width: 100%;
                         margin: 15px 0;
@@ -582,6 +583,19 @@
                         height: 25px;
                         margin-right: 20px;
                     }
+                }
+
+                .bot-cards-container {
+                    display: flex;
+                    overflow-x: auto;
+                    padding: 20px 0;
+                    scroll-snap-type: x mandatory;
+                }
+                
+                .BotCard {
+                    flex: 0 0 auto;
+                    margin: 0 10px;
+                    scroll-snap-align: start;
                 }
               </style>
 
