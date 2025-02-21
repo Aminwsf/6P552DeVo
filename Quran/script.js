@@ -1,11 +1,5 @@
 const QuranData = {
-    Sura:  (ver 1.0)
-// Source: Tanzil.info
-
-export const QuranData = {};
-
-//------------------ Sura Data ---------------------
-QuranData.Sura = [
+    Sura: [
   [],
   ["الفاتحة", "ⴰⵍⴼⴰⵜⵉⵃⴰ", "Al-Faatiha", "Meccan"],
   ["البقرة", "ⴰⵍⴱⴰⵇⴰⵔⴰ", "Al-Baqara", "Medinan"],
