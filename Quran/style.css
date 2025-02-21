@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.page-container img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.sura-list {
+    margin-top: 20px;
+}
+
+.sura-list h2 {
+    margin-bottom: 10px;
+}
+
+.sura-list ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sura-list ul li {
+    margin: 5px 0;
+    cursor: pointer;
+    color: #007bff;
+}
+
+.sura-list ul li:hover {
+    text-decoration: underline;
+}
