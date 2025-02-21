@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read Manga</title>
+    <style>
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .back-link { margin-bottom: 20px; display: inline-block; }
+        .chapter-images img { width: 100%; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="javascript:history.back()" class="back-link">← Back to Manga</a>
+        <h1 id="chapterTitle"></h1>
+        <div class="chapter-images" id="images"></div>
+    </div>
+
+    <script>
+        async function loadChapter() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const chapterUrl = urlParams.get('url');
+
+            try {
+                const response = await fetch(`https://manga-chi-jade.vercel.app/api/smanga/read?url=${encodeURIComponent(chapterUrl)}`);
+                const chapter = await response.json();
+                const chapter = 
+
+                document.getElementById('chapterTitle').textContent = chapter.title;
+                const imagesContainer = document.getElementById('images');
+                imagesContainer.innerHTML = chapter.images.map(img => `
+                    <img src="${img}">
+                `).join('');
+            } catch (error) {
+                console.error('Failed to load chapter:', error);
+            }
+        }
+
+        loadChapter();
+    </script>
+</body>
+</html>

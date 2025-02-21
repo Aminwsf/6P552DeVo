@@ -1,0 +1,55 @@
+<!-- search.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Manga</title>
+    <style>
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .search-box { margin-bottom: 20px; display: flex; gap: 10px; }
+        input { flex: 1; padding: 10px; }
+        button { padding: 10px 20px; }
+        .results { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+        .manga-card { cursor: pointer; transition: transform 0.2s; }
+        .manga-card:hover { transform: translateY(-5px); }
+        .cover { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; }
+        .title { margin-top: 10px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Manga</h1>
+        <div class="search-box">
+            <input type="text" placeholder="Search manga..." id="searchInput">
+            <button onclick="searchManga()">Search</button>
+        </div>
+        <div class="results" id="results"></div>
+    </div>
+
+    <script>
+        async function searchManga() {
+            const query = document.getElementById('searchInput').value;
+            if (!query) return;
+
+            try {
+                const response = await fetch(`https://manga-chi-jade.vercel.app/api/smanga/search?q=${encodeURIComponent(query)}`);
+                const results = await response.json();
+                displayResults(results);
+            } catch (error) {
+                console.error('Search failed:', error);
+            }
+        }
+
+        function displayResults(results) {
+            const container = document.getElementById('results');
+            container.innerHTML = results.map(manga => `
+                <div class="manga-card" onclick="location.href='manga.html?url=${encodeURIComponent(manga.url)}'">
+                    <img src="${manga.cover}" class="cover" alt="${manga.title}">
+                    <div class="title">${manga.title}</div>
+                </div>
+            `).join('');
+        }
+    </script>
+</body>
+</html>
