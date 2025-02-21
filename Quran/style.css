@@ -1,20 +1,14 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    direction: rtl;
+    text-align: right;
 }
 
 .container {
-    text-align: center;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 .navigation {
@@ -28,19 +22,22 @@ body {
     cursor: pointer;
 }
 
+.page-container {
+    margin-bottom: 20px;
+}
+
 .page-container img {
     max-width: 100%;
     height: auto;
-    border: 1px solid #ddd;
-    border-radius: 5px;
 }
 
 .sura-list {
-    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
 }
 
 .sura-list h2 {
-    margin-bottom: 10px;
+    text-align: center;
 }
 
 .sura-list ul {
@@ -49,11 +46,11 @@ body {
 }
 
 .sura-list ul li {
-    margin: 5px 0;
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
     cursor: pointer;
-    color: #007bff;
 }
 
 .sura-list ul li:hover {
-    text-decoration: underline;
+    background-color: #f0f0f0;
 }
