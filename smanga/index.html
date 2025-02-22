@@ -36,7 +36,7 @@
                 const results = await response.json();
                 const mangas = results.data.map((manga) => ({
   title: manga.title,
-  url: manga.id,
+  id: manga.id,
   cover: manga.img
 }));
                 displayResults(mangas);
@@ -48,7 +48,7 @@
         function displayResults(results) {
             const container = document.getElementById('results');
             container.innerHTML = results.map(manga => `
-                <div class="manga-card" onclick="location.href='manga.html?url=${encodeURIComponent(manga.url)}'">
+                <div class="manga-card" onclick="location.href='manga.html?id=${encodeURIComponent(manga.id)}'">
                     <img src="${manga.cover}" class="cover" alt="${manga.title}">
                     <div class="title">${manga.title}</div>
                 </div>
