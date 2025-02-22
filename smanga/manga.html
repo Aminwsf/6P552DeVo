@@ -30,11 +30,24 @@
     <script>
         async function loadManga() {
             const urlParams = new URLSearchParams(window.location.search);
-            const mangaUrl = urlParams.get('url');
+            const mangaUrl = urlParams.get('id');
             if (!mangaUrl) return
             try {
-                const response = await fetch(`https://manga-chi-jade.vercel.app/api/smanga/manga?url=${encodeURIComponent(mangaUrl)}`);
-                const manga = await response.json();
+                const response = await fetch(`https://api.mangamello.com/v1/mangas${encodeURIComponent(mangaUrl)}??relations=chapters,genres&rate=true`);
+                const data = await response.json();
+                const manga = {
+      title: data.title,
+      image: data.img,
+      author: data.author || 'N/A',
+      artist: data.artist || 'N/A',
+      genres: data.genres.map((g) => g.name).join(', '),
+      summary: data.summary,
+      chapters: data.chapters.map((c) => ({
+        title: c.title,
+        id: `${url},${c.id}`,
+      }))
+                }
+     
                 
                 document.getElementById('mangaCover').src = manga.cover;
                 document.getElementById('mangaTitle').textContent = manga.title;
@@ -43,7 +56,7 @@
 
                 const chaptersContainer = document.getElementById('chapters');
                 chaptersContainer.innerHTML = manga.chapters.map(chapter => `
-                    <div class="chapter" onclick="location.href='read.html?url=${encodeURIComponent(chapter.url)}'">
+                    <div class="chapter" onclick="location.href='read.html?id=${encodeURIComponent(chapter.id)}'">
                         ${chapter.title}
                     </div>
                 `).join('');
