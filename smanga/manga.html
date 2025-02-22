@@ -40,7 +40,7 @@
       image: data.img,
       author: data.author || 'N/A',
       artist: data.artist || 'N/A',
-      genres: data.genres.map((g) => g.name).join(', '),
+      genres: data.genres || 'N/A',
       summary: data.summary,
       chapters: data.chapters.map((c) => ({
         title: c.title,
