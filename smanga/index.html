@@ -37,7 +37,7 @@
                 const mangas = results.data.map((manga) => ({
   title: manga.title,
   url: manga.id,
-  type: "manga",
+  cover: manga.img
 }));
                 displayResults(mangas);
             } catch (error) {
