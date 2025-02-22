@@ -25,7 +25,7 @@
 
             try {
                 const response = await fetch(`https://api.mangamello.com/v1/mangas/${mangaId}/chapters/${chapterId}?relations=chapterImages`);
-                const data = await response.json();
+                const { data } = await response.json();
                 const chapter = {
       title: data.title,
       images: data.chapterImages.map((img) => img.src),
